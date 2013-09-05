@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ $# -ne 2 ]; then
+    echo "need two parameters." >&2
+    echo "please pass the screen resolutin of x and y" >&2
+    exit 1
+fi
+
+xrandr --output LVDS1 --mode ${1}x${2} 
+xrandr --output CVT  --same-as LVDS1
+xrandr --output HDMI1  --same-as LVDS1

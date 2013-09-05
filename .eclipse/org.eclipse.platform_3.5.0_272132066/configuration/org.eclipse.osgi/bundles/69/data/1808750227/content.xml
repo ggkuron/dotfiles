@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='extension location metadata repository: file:/usr/lib64/eclipse-3.5/.eclipseextension' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='3'>
+    <property name='org.eclipse.update.site.policy' value='USER-EXCLUDE'/>
+    <property name='org.eclipse.update.site.list' value=''/>
+    <property name='p2.timestamp' value='1344647408973'/>
+  </properties>
+  <units size='2'>
+    <unit id='org.eclipse.equinox.initializer' version='1.0.0'>
+      <update id='org.eclipse.equinox.initializer' range='[0.0.0,1.0.0)' severity='0'/>
+      <properties size='5'>
+        <property name='df_LT.bundlename' value='Initializer Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundlename'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse-3.5/plugins/org.eclipse.equinox.initializer_1.0.0.jar'/>
+        <property name='file.lastModified' value='1344647045000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.equinox.initializer' version='1.0.0'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.equinox.initializer' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='java.package' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.osgi.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.osgi.framework' range='1.3.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.equinox.initializer' version='1.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Activator: org.eclipse.equinox.internal.initializer.Activator&#xA;Import-Package: org.eclipse.core.runtime,org.eclipse.osgi.util,org.osgi.framework;version=&quot;1.3.0&quot;&#xA;Bundle-Name: %bundlename&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.equinox.initializer;singleton:=true&#xA;Bundle-Version: 1.0.0&#xA;Created-By: 20.7-b02 (Sun Microsystems Inc.)&#xA;Eclipse-LazyStart: true&#xA;Ant-Version: Apache Ant 1.7.1&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.equinox.concurrent' version='1.0.0.v20090831-1906' singleton='false'>
+      <update id='org.eclipse.equinox.concurrent' range='[0.0.0,1.0.0.v20090831-1906)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.pluginProvider' value='Eclipse.org - Equinox'/>
+        <property name='df_LT.pluginName' value='Equinox Concurrent API'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%pluginProvider'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse-3.5/plugins/org.eclipse.equinox.concurrent_1.0.0.v20090831-1906.jar'/>
+        <property name='file.lastModified' value='1344647045000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.equinox.concurrent' version='1.0.0.v20090831-1906'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.equinox.concurrent' version='1.0.0.v20090831-1906'/>
+        <provided namespace='java.package' name='org.eclipse.equinox.concurrent.future' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='java.package' name='org.eclipse.core.runtime' range='3.4.0'/>
+        <required namespace='java.package' name='org.osgi.framework' range='1.3.0'/>
+        <required namespace='java.package' name='org.osgi.util.tracker' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.equinox.concurrent' version='1.0.0.v20090831-1906'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %pluginProvider&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: CDC-1.0/Foundation-1.0,J2SE-1.3&#xA;Import-Package: org.eclipse.core.runtime;version=&quot;3.4.0&quot;;common=split,org.osgi.framework;version=&quot;1.3.0&quot;,org.osgi.util.tracker&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.equinox.concurrent&#xA;Bundle-Version: 1.0.0.v20090831-1906&#xA;Export-Package: org.eclipse.equinox.concurrent.future;version=&quot;1.0&quot;;x-internal:=&quot;true&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

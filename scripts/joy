@@ -1,0 +1,7 @@
+#!/bin/bash
+
+xjoypad -buttons 54 55 40 41 26 27 
+xjoypad -left 43 
+xjoypad -right 46 
+xjoypad -up 45 
+xjoypad -down 44

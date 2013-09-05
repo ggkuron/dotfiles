@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ruby $HOME/mikutter/mikutter.rb
