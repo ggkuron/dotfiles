@@ -1,0 +1,3 @@
+*.db
+.config/dconf/user
+.xmonad/xmonad-x86_64-linux
