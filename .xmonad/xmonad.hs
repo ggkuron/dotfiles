@@ -1,0 +1,141 @@
+-- xmonad.hs
+--
+import XMonad --hiding ((|||))
+import Data.Monoid
+import System.Exit
+import XMonad.Hooks.DynamicLog
+import XMonad.Layout.ToggleLayouts
+--import XMonad.Layout.Spiral
+import XMonad.Layout.Minimize
+import Data.Ratio
+import XMonad.Config.Gnome
+--import XMonad.Stack.MyAdditions
+
+import qualified XMonad.StackSet as W
+import qualified Data.Map        as M
+
+myTerminal = "gnome-terminal"
+--myBar = "xmobar"
+--myPP = xmobarPP{ppCurrent =xmobarColor "#ffff55""".wrap"<"">"}
+toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
+
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = False
+myBorderWidth   = 3
+myModMask       = mod4Mask
+myNumlockMask   = mod2Mask
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myNormalBorderColor  = "#dddddd"
+myFocusedBorderColor = "#cc6600"
+
+myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    -- , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    , ((modm,               xK_p     ), spawn "dmenu_run")
+    , ((modm,               xK_c     ), kill)
+    , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm,               xK_f     ), sendMessage (Toggle "Full"))
+    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+    , ((modm,               xK_n     ), refresh)
+    , ((modm,               xK_Tab   ), windows W.focusDown)
+    , ((modm,               xK_j     ), windows W.focusDown)
+    , ((modm,               xK_k     ), windows W.focusUp  )
+    , ((modm,               xK_m     ), windows W.focusMaster  )
+    , ((modm,               xK_Return), windows W.swapMaster)
+    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
+    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
+    , ((modm,               xK_h     ), sendMessage Shrink)
+    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm .|. shiftMask, xK_r     ), do
+        screenWorkspace 0 >>= flip whenJust (windows.W.view)
+        (windows . W.greedyView) "1"
+        screenWorkspace 1 >>= flip whenJust (windows.W.view)
+        (windows . W.greedyView) "8")
+    -- , ((modm,               xK_h     ), withFocused minimizeWindow )
+    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    -- , ((mod4Mask,           xK_z     ), spawn "exex ~/.chanum.sh")
+    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
+    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    ]
+    ++
+    [((m .|. modm, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+
+myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
+                                       >> windows W.shiftMaster))
+    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
+                                       >> windows W.shiftMaster))
+    ]
+-- Layouts:
+myLayout =  (toggleLayouts Full  tiled) |||  (toggleLayouts Full (Mirror tiled))
+        where                                
+            tiled   = Tall nmaster delta ratio
+            nmaster = 1
+            ratio   = 3/5
+            delta   = 2/100
+---------------------------------------------------------------------
+-- Window rules:
+-- To find the property name associated with a program, use
+-- > xprop | grep WM_CLASS
+-- and click on the client you're interested in.
+-- To match on the WM_NAME, you can use 'title' in the same way that
+-- 'className' and 'resource' are used below.
+myManageHook = composeAll
+    [ className =? "MPlayer"        --> doFloat
+    --, className =? "Firefox"        --> doShift "4"
+    , className =? "Thunderbird"    --> doShift "8"
+    , className =? "slite"    --> doFloat 
+    --, className =? "wpa_gui" --> doShift "9"
+    -- , resource  =? "desktop_window" --> doIgnore 
+    ]
+---------------------------------------------------------------------
+-- Event handling
+-- * EwmhDesktops users should change this to ewmhDesktopsEventHook
+-- Defines a custom handler function for X Events. The function should
+-- return (All True) if the default handler is to be run afterwards. To
+-- combine event hooks use mappend or mconcat from Data.Monoid.
+myEventHook = mempty
+---------------------------------------------------------------------
+-- Status bars and logging
+-- Perform an arbitrary action on each internal state change or X event.
+-- See the 'DynamicLog' extension for examples.
+-- To emulate dwm's status bar
+-- > logHook = dynamicLogDzen
+myLogHook = return ()
+---------------------------------------------------------------------
+-- Startup hook
+-- Perform an arbitrary action each time xmonad starts or is restarted
+-- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
+-- per-workspace layout choices.
+-- By default, do nothing.
+myStartupHook = return ()
+---------------------------------------------------------------------
+main = do
+    spawn  "hsetroot -fill ~/29667176.jpg"
+    -- spawn  "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand true --witdh 20 --transparent true --tint -xffffff --height 11&"
+    -- spawn  "dmenu"
+    spawn  "volti"
+    xmonad defaults
+    -- statusBar myBar myPP toggleStructsKey defaults 
+
+defaults = defaultConfig {
+        terminal           = myTerminal,
+        focusFollowsMouse  = myFocusFollowsMouse,
+        borderWidth        = myBorderWidth,
+        modMask            = myModMask,
+        -- numlockMask        = myNumlockMask,
+        workspaces         = myWorkspaces,
+        normalBorderColor  = myNormalBorderColor,
+        focusedBorderColor = myFocusedBorderColor,
+        keys               = myKeys,
+        mouseBindings      = myMouseBindings,
+        layoutHook         = myLayout,
+        manageHook         = myManageHook <+> (doF W.swapDown) ,
+        handleEventHook    = myEventHook,
+        logHook            = myLogHook,
+        startupHook        = myStartupHook
+        }
