@@ -19,15 +19,16 @@ prompt gentoo
 autoload -Uz compinit
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
-setopt correctall
+# setopt correctall
 export EDITOR="vim"
 compinit
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-#
-#export LANG="en_US.UTF-8"
+
+#export LANG="ja_JP.UTF-8"
+export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 export GBDKDIR=/usr/local/share/gbdk/
@@ -66,7 +67,7 @@ alias tig='tig --all'
 
 setopt auto_cd
 setopt auto_pushd
-setopt correct
+# setopt correct
 setopt auto_list
 setopt list_types
 
@@ -75,7 +76,7 @@ setopt extended_glob
 alias ls=' ls --color=always'
 export LESS='-R'
 alias -g L='| less -R'
-alias -g terminal='gnome-terminal'
+alias -g terminal='terminal'
 
 #THIS MUST BE AT THE END FOR GVM TO WORK!!!
 [[ -s "/home/ggkuron/.gvm/bin/gvm-init.sh" ]] && source "/home/ggkuron/.gvm/bin/gvm-init.sh"
