@@ -14,7 +14,7 @@ import XMonad.Config.Gnome
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-myTerminal = "gnome-terminal"
+myTerminal = "terminal"
 --myBar = "xmobar"
 --myPP = xmobarPP{ppCurrent =xmobarColor "#ffff55""".wrap"<"">"}
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
