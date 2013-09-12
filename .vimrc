@@ -45,9 +45,8 @@ NeoBundle "ujihisa/neco-ghc"
 NeoBundle "pbrisbin/html-template-syntax"
 NeoBundle "vim-scripts/TwitVim"
 let g:neocomplcache_enable_at_startup = 1
-
+"auto detect plugin and indent by filetype
 filetype plugin indent on
-filetype indent indent on
 "move aliases
 nnoremap j gj
 nnoremap k gk
@@ -83,6 +82,6 @@ nnoremap ,tm :<C-u>MentionsTwitter<CR>
 nnoremap ,tu :<C-u>UserTwitter<CR>
 nnoremap ,tr :<C-u>RepliesTwitter<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
-
+"set indent by filetype 
 autocmd FileType c set cindent
 autocmd FileType make set noexpandtab
