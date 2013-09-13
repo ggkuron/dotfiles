@@ -43,6 +43,7 @@ export GEM_HOME=$HOME/.gem/ruby/2.0.0/gems
 export PATH=$PATH:/usr/lib/ccache/bin:/usr/lib/distcc/bin
 export PATH=$PATH:/usr/games/bin
 export PATH=$PATH:$GBDKDIR/bin
+export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/altera/12.0sp1/quartus/bin
 export PATH=$PATH:$HOME/android/android-sdk-linux/tools
 export PATH=$PATH:$HOME/android/android-sdk-linux/platform-tools
