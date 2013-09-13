@@ -1,8 +1,9 @@
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+# # bellow exports were moved to xprofile
+# export GTK_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+# export QT_IM_MODULE=ibus
+# #
 ibus-daemon -d -x
-
 gnome-power-manager&
 
 # set left of A Ctrl, and change Mod key

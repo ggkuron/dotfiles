@@ -27,8 +27,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-#export LANG="ja_JP.UTF-8"
-#export LANG="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 export GBDKDIR=/usr/local/share/gbdk/
