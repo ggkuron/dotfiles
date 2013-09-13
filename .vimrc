@@ -24,27 +24,27 @@ set tabstop=4
 
 syntax on
 colorscheme dw_yellow
-
-NeoBundle "Shougo/vinarise"
-NeoBundle "Shougo/neocomplcache"
-NeoBundle "Shougo/unite.vim"
-NeoBundle "Shougo/vimfiler"
-NeoBundle "thinca/vim-quickrun"
-NeoBundle "Shougo/vimshell"
-NeoBundle "Shougo/vimproc"
-NeoBundle "eagletmt/ghcmod-vim"
-NeoBundle "dag/vim2hs"
-let g:haskell_conceal = 0
-NeoBundle "taglist.vim"
-NeoBundle "FuzzyFinder"
-NeoBundle "L9"
-NeoBundle "kchmck/vim-coffee-script"
-NeoBundle "dart-lang/dart-vim-plugin"
-NeoBundle "eagletmt/ghcmod-vim"
-NeoBundle "ujihisa/neco-ghc"
-NeoBundle "pbrisbin/html-template-syntax"
-NeoBundle "vim-scripts/TwitVim"
-let g:neocomplcache_enable_at_startup = 1
+"NeoBundle plugin manager
+NeoBundle 'Shougo/vinarise'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'dag/vim2hs'
+let g:haskell_conceal = 0 "disable interfering character replacement
+NeoBundle 'taglist.vim'
+NeoBundle 'FuzzyFinder'
+NeoBundle 'L9'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'dart-lang/dart-vim-plugin'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'pbrisbin/html-template-syntax'
+NeoBundle 'vim-scripts/TwitVim'
+let g:neocomplcache_enable_at_startup = 1 "enable with vim startup
 "auto detect plugin and indent by filetype
 filetype plugin indent on
 "move aliases
