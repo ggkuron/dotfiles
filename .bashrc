@@ -7,6 +7,7 @@ if [[ $- != *i* ]] ; then
 fi
 
 export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 "\e[3~": delete-char
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
