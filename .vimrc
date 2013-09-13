@@ -4,26 +4,39 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 set nocompatible
 set nobackup
 set noswapfile
-set showcmd
-
+"view settings
 set background=dark
 set t_Co=256
 set encoding=utf-8
+set showcmd
+set showmatch
 set number
 set nowrap
 set list
 set listchars=tab:>>
-
-set autoindent
-set showmatch
-
+syntax on
+colorscheme dw_yellow
+"caret controles
 set whichwrap=b,s,h,l,<,>,[,] 
+set autoindent
 set expandtab
 set shiftwidth=4
 set tabstop=4
+"move aliases
+nnoremap j gj
+nnoremap k gk
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+noremap  <Space>h ^
+noremap  <Space>l $
+noremap  <Space>m %
+nnoremap <Space>/ *
+"invalidate Q and ZQ
+nnoremap Q  <Nop>
+nnoremap ZQ <Nop>
 
-syntax on
-colorscheme dw_yellow
 "NeoBundle plugin manager
 NeoBundle 'Shougo/vinarise'
 NeoBundle 'Shougo/neocomplcache'
@@ -47,20 +60,6 @@ NeoBundle 'vim-scripts/TwitVim'
 let g:neocomplcache_enable_at_startup = 1 "enable with vim startup
 "auto detect plugin and indent by filetype
 filetype plugin indent on
-"move aliases
-nnoremap j gj
-nnoremap k gk
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-noremap <Space>h ^
-noremap <Space>l $
-noremap <Space>m %
-nnoremap <Space>/ *
-"invalidate Q and ZQ
-nnoremap Q <Nop>
-nnoremap ZQ <Nop>
 "Unite
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -82,6 +81,7 @@ nnoremap ,tm :<C-u>MentionsTwitter<CR>
 nnoremap ,tu :<C-u>UserTwitter<CR>
 nnoremap ,tr :<C-u>RepliesTwitter<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
+
 "set indent by filetype 
 autocmd FileType c set cindent
 autocmd FileType make set noexpandtab

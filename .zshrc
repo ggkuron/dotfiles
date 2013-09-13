@@ -9,7 +9,7 @@ precmd(){
     _z --add "$(pwd -P)"
 }
 
-# 環境ごとに使いまわすときの function definition file not found 対策
+# countermeasure against "function definition file not found"
 # fpath=(/usr/local/share/zsh/5.0.2/functions ${fpath})
 
 autoload -U promptinit
