@@ -89,10 +89,10 @@ vmap     <silent> <Space>ss :VimShellSendString<CR>
 " TwitVim
 let twitvim_count = 40
 nnoremap tp :<C-u>PosttoTwitter<CR>
-nnoremap tf :<C-u>FriendsTwitter<CR>
-nnoremap tm :<C-u>MentionsTwitter<CR>
-nnoremap tu :<C-u>UserTwitter<CR>
-nnoremap tr :<C-u>RepliesTwitter<CR>
+nnoremap tf :<C-u>FriendsTwitter<CR><C-w>k:<C-u>set wrap<CR>
+nnoremap tm :<C-u>MentionsTwitter<CR><C-w>k:<C-u>set wrap<CR>
+nnoremap tu :<C-u>UserTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
+nnoremap tr :<C-u>RepliesTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
 
 " set indent by filetype 
