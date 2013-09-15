@@ -114,8 +114,8 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = return ()
 ---------------------------------------------------------------------
+
 main = do
-    spawn  "hsetroot -fill ~/29667176.jpg"
     -- spawn  "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand true --witdh 20 --transparent true --tint -xffffff --height 11&"
     -- spawn  "dmenu"
     spawn  "volti"

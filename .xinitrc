@@ -12,9 +12,9 @@ xmodmap ~/.xmodmap
 
 # for xmonad
 xsetroot -cursor_name left_ptr
-hsetroot -fill $HOME/Desktop/cartridge_dig.png
 xmonad
 xfsettingsd&
+hsetroot -fill $HOME/Desktop/cartridge_dig.png
 
 # exec /usr/bin/awesome
 exec $HOME/altera/12.0sp1/quartus/bin/jtagd
