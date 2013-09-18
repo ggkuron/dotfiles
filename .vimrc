@@ -40,7 +40,7 @@ nnoremap t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
 " splitright only when opening empty new
 nnoremap <Space>v :vnew<CR><C-w>L<CR>
 nnoremap <Space>s :new<CR>
-nnoremap <Space><Space> <c-w>=
+nnoremap <Space><Space> <C-w>=
 nnoremap te :tabe<CR>
 
 " invalidate Q,ZZ and ZQ
@@ -96,7 +96,7 @@ nnoremap tm :<C-u>MentionsTwitter<CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tu :<C-u>UserTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tr :<C-u>RepliesTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
-let twitvim_browser_cmd = "xdg-open"
+let twitvim_browser_cmd = 'xdg-open'
 
 " set indent by filetype 
 autocmd FileType c set cindent
