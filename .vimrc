@@ -37,8 +37,9 @@ nnoremap <Space>/ *
 nnoremap t2 :<C-u>setl shiftwidth=2 softtabstop=2<CR>
 nnoremap t4 :<C-u>setl shiftwidth=4 softtabstop=4<CR>
 nnoremap t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
-nnoremap <Space>v :vs<CR><c-w>l
-nnoremap <Space>s :sp<CR>
+" splitright only when opening empty new
+nnoremap <Space>v :vnew<CR><C-w>L<CR>
+nnoremap <Space>s :new<CR>
 nnoremap <Space><Space> <c-w>=
 nnoremap te :tabe<CR>
 
