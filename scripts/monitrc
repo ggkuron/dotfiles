@@ -6,5 +6,5 @@ if [ $# -ne 2 ]; then
 fi
 
 xrandr --output LVDS1 --mode ${1}x${2} 
-xrandr --output CVT  --same-as LVDS1
+# xrandr --output CVT  --same-as LVDS1
 xrandr --output HDMI1  --same-as LVDS1

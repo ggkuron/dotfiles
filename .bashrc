@@ -11,4 +11,4 @@ export LC_ALL="en_US.UTF-8"
 "\e[3~": delete-char
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/ggkuron/.gvm/bin/gvm-init.sh" ]] && source "/home/ggkuron/.gvm/bin/gvm-init.sh"
+[[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh

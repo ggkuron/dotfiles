@@ -79,4 +79,4 @@ alias -g L='| less -R'
 alias -g terminal='terminal'
 
 #THIS MUST BE AT THE END FOR GVM TO WORK!!!
-[[ -s "/home/ggkuron/.gvm/bin/gvm-init.sh" ]] && source "/home/ggkuron/.gvm/bin/gvm-init.sh"
+[[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh

@@ -11,10 +11,10 @@ xmodmap -e "keycode 108 = Alt_L"
 xmodmap ~/.xmodmap
 
 # for xmonad
+hsetroot -fill $HOME/Desktop/cartridge_dig.png
 xsetroot -cursor_name left_ptr
 xmonad
 xfsettingsd&
-hsetroot -fill $HOME/Desktop/cartridge_dig.png
 
 # exec /usr/bin/awesome
 exec $HOME/altera/12.0sp1/quartus/bin/jtagd
