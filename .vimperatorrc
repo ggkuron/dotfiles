@@ -1,0 +1,11 @@
+
+set ignorecase
+set hintchars=lsjdkfgh
+" stay focus in input areas
+set focuscontent 
+
+hi StatusLine color:black; background:#BBB;
+hi Hint font-family:monospace; fontsize:14px; background-color:lightblue; color:darkred; font-family:Sans; position:absolute;
+hi HintElem background-color:aqua;
+
+echo '.vimperatorrc loaded'
