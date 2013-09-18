@@ -45,7 +45,8 @@ nnoremap te :tabe<CR>
 nnoremap Q  <Nop>
 nnoremap ZQ <Nop>
 nnoremap ZZ <Nop>
-cmap w!! !sudo tee > /dev/null % " sudo write
+" sudo write
+cmap w!! w !sudo tee % > /dev/null
 
 " NeoBundle plugin manager
 if has('vim_starting')
