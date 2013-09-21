@@ -78,5 +78,10 @@ export LESS='-R'
 alias -g L='| less -R'
 alias -g terminal='terminal'
 
+alias hdmil='monitrc hdmi-left'
+alias hdmir='monitrc hdmi-right'
+alias hdmim='monitrc hdmi-mirror'
+alias hdmioff='monitrc hdmi-off'
+
 #THIS MUST BE AT THE END FOR GVM TO WORK!!!
 [[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh
