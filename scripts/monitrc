@@ -1,5 +1,4 @@
 #!/bin/sh
-
 hdmi_res="1920x1080"
 lvds_res="1366x768"
 
@@ -22,4 +21,3 @@ if (( $# == 1 )); then
 else
     exit 1
 fi
-
