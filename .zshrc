@@ -56,6 +56,7 @@ export PATH=$PATH:$DART_SDK
 export PATH=$PATH:$DART_SDK/bin
 export PATH=$PATH:/usr/local/heroku/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.0.0/gems/bin
 export PATH=$PATH:$HOME/cabal-dev/yesod/bin
 export PATH=$PATH:$HOME/groovy-2.1.6/bin
 export PATH=$PATH:$HOME/mikutter
