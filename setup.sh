@@ -2,7 +2,6 @@
 
 . $PWD/setup_common.sh
 
-sym_to_home .bash_profile
 sym_to_home .bashrc
 sym_to_home .zshrc
 sym_to_home .vimrc

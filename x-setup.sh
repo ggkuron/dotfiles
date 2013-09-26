@@ -2,6 +2,7 @@
 
 . $PWD/setup_common.sh
 
+sym_to_home .xprofile
 sym_to_home .xinitrc
 sym_to_home .xmodmap
 sym_to_home .xmobarrc
