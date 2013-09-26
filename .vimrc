@@ -24,8 +24,6 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 " move aliases
-nnoremap j gj
-nnoremap k gk
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
@@ -74,6 +72,8 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'vim-scripts/TwitVim'
 let g:neocomplcache_enable_at_startup = 1 " enable with vim startup
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'SyntaxRange'
 filetype plugin indent on " auto detect plugin and indent by filetype
 " Unite
 nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
@@ -86,9 +86,9 @@ nnoremap <silent> <Space>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer f
 nnoremap <silent> QR :QuickRun<CR>
 " Vimshell
 nnoremap <silent> <Space>vs :VimShell<CR>
-nnoremap <silent> <Space>h :VimShellInteractive ghci<CR>
+nnoremap <silent> <Space>gh :VimShellInteractive ghci<CR>
 vmap     <silent> <Space>ss :VimShellSendString<CR>
-" TwitVim
+" TkitVim
 let twitvim_count = 40
 nnoremap tp :<C-u>PosttoTwitter<CR>
 nnoremap tf :<C-u>FriendsTwitter<CR><C-w>k:<C-u>set wrap<CR>
