@@ -6,12 +6,20 @@ lvds_res="1366x768"
 if (( $# == 1 )); then
     case $1 in
         "hdmi-mirror" )
-            xrandr --output HDMI1 --mode $hdmi_res --output LVDS1 --mode $lvds_res ;;
+            xrandr --output HDMI1 --mode $hdmi_res --output LVDS1 --mode $lvds_res 
+            exit 0 ;;
         "hdmi-left" )
-            xrandr --output HDMI1 --mode $hdmi_res --left-of LVDS1 --output LVDS1 --mode $lvds_res ;;
+            xrandr --output HDMI1 --mode $hdmi_res --left-of LVDS1 --output LVDS1 --mode $lvds_res 
+            exit 0 ;;
         "hdmi-right" )
-            xrandr --output HDMI1 --mode $hdmi_res --right-of LVDS1 --output LVDS1 --mode $lvds_res ;;
+            xrandr --output HDMI1 --mode $hdmi_res --right-of LVDS1 --output LVDS1 --mode $lvds_res 
+            exit 0 ;;
         "hdmi-off" )
             xrandr --output HDMI1 --off
+            exit 0 ;;
     esac
+    exit 1
+else
+    exit 1
 fi
+
