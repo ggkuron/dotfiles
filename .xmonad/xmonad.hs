@@ -30,7 +30,6 @@ myFocusedBorderColor = "#cc6600"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-    -- , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
     , ((modm,               xK_p     ), spawn "dmenu_run")
     , ((modm,               xK_c     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -53,7 +52,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         (windows . W.greedyView) "8")
     -- , ((modm,               xK_h     ), withFocused minimizeWindow )
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
-    -- , ((mod4Mask,           xK_z     ), spawn "exex ~/.chanum.sh")
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
@@ -62,7 +60,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-
+       -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+       -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+    ++
+    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
+          | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
+          , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+   
+   
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
                                        >> windows W.shiftMaster))
