@@ -8,4 +8,6 @@ hi StatusLine color:black; background:#BBB;
 hi Hint font-family:monospace; fontsize:14px; background-color:lightblue; color:darkred; font-family:Sans; position:absolute;
 hi HintElem background-color:aqua;
 
+map <C-k> <Nop>
+
 echo '.vimperatorrc loaded'
