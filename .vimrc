@@ -54,7 +54,7 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))            
 NeoBundle 'Shougo/vinarise'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
@@ -72,7 +72,7 @@ NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'vim-scripts/TwitVim'
-let g:neocomplcache_enable_at_startup = 1 " enable with vim startup
+let g:neocomplete#enable_at_startup = 1 " enable with vim startup
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'SyntaxRange'
 filetype plugin indent on " auto detect plugin and indent by filetype
