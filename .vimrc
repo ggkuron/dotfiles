@@ -72,10 +72,14 @@ NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'vim-scripts/TwitVim'
-let g:neocomplete#enable_at_startup = 1 " enable with vim startup
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'SyntaxRange'
 filetype plugin indent on " auto detect plugin and indent by filetype
+" neocomplete
+let g:neocomplete#enable_at_startup = 1 " enable neocomplete
+let g:neocomplete#enable_smart_case = 1 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-y>  neocomplete#close_popup()
 " Unite
 nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
 nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -99,6 +103,11 @@ nnoremap tr :<C-u>RepliesTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
 let twitvim_browser_cmd = 'xdg-open'
 
-" set indent by filetype 
+" filetype settings
 autocmd FileType c set cindent
 autocmd FileType make set noexpandtab
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
