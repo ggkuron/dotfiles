@@ -12,6 +12,8 @@ precmd(){
 # countermeasure against "function definition file not found"
 # fpath=(/usr/local/share/zsh/5.0.2/functions ${fpath})
 
+bindkey '^[[3~' delete-char
+
 autoload -U promptinit
 promptinit
 prompt gentoo
