@@ -4,6 +4,7 @@
 # export QT_IM_MODULE=ibus
 # #
 ibus-daemon -d -x
+ssh-agent 
 
 # replace Alt_R with Alt_L
 xmodmap -e "keycode 108 = Alt_L"    
