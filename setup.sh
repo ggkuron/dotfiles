@@ -8,6 +8,11 @@ sym_to_home .vimrc
 sym_to_home .gvimrc
 sym_to_home .tmux.conf
 
-if mkdir_if_needed .config/Terminal; then
+if mkdir_if_needed .config/Terminal ; then
     sym_to_home .config/Terminal/terminalrc
+fi
+if mkdir_if_needed scripts ; then
+    for f in scripts/* ; do
+        sym_to_home $f
+    done
 fi

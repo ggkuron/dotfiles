@@ -8,6 +8,6 @@ sym_to_home .xmodmap
 sym_to_home .xmobarrc
 sym_to_home .vimperatorrc
 
-if mkdir_if_needed .xmonad; then
+if mkdir_if_needed .xmonad ; then
     sym_to_home .xmonad/xmonad.hs
 fi

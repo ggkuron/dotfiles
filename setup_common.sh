@@ -7,13 +7,14 @@ mkdir_if_needed() {
     fi
     if [ ! -d $HOME/$1 ]; then
         if  mkdir -p $HOME/$1; then
-            echo "$HOME/$1 was created!"
+            echo "$HOME/$1 is created!"
             return 0
         else
             echo "failed to mkdir -p $HOME/$1 .. "
             return 1
         fi
     fi
+    return 0
 }
 
 sym_to_home() {
@@ -21,15 +22,15 @@ sym_to_home() {
         echo "file $1 does not exist. exit script .. " 1>&2
         exit 1
     elif [ -e $HOME/$1 ]; then
-        echo "$HOME/$1 exists .. keeping it and continue .." 1>&2
+        echo "$HOME/$1 exists .. kept it .." 1>&2
         return 1
     fi
 
     if ln -s $PWD/$1 $HOME/$1; then
-        echo "$HOME/$1 was created!"
+        echo "$HOME/$1 is created!"
         return 0
     else
-        echo "something strange.. failed to create link $HOME/$1 .. "
+        echo "failed to create link $HOME/$1 .. "
         return 1
     fi
 }
