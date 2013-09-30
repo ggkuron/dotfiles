@@ -50,7 +50,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         (windows . W.greedyView) "1"
         screenWorkspace 1 >>= flip whenJust (windows.W.view)
         (windows . W.greedyView) "8")
-    -- , ((modm,               xK_h     ), withFocused minimizeWindow )
+    , ((modm,               xK_h     ), withFocused minimizeWindow )
+    , ((modm .|. shiftMask, xK_h     ), sendMessage RestoreNextMinimizedWin )
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
@@ -76,7 +77,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
     ]
 -- Layouts:
-myLayout =  (toggleLayouts Full  tiled) |||  (toggleLayouts Full (Mirror tiled))
+myLayout =  minimize (toggleLayouts Full  tiled) |||  minimize (toggleLayouts Full (Mirror tiled))
         where                                
             tiled   = Tall nmaster delta ratio
             nmaster = 1
