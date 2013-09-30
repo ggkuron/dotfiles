@@ -36,10 +36,12 @@ nnoremap t2 :<C-u>setl shiftwidth=2 softtabstop=2<CR>
 nnoremap t4 :<C-u>setl shiftwidth=4 softtabstop=4<CR>
 nnoremap t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
 " splitright only when opening empty new
-nnoremap <Space>v :vnew<CR><C-w>L<CR>
-nnoremap <Space>s :new<CR>
+nnoremap <Space>v :vnew<CR><C-w>Li
+nnoremap <Space>s :new<CR>i
 nnoremap <Space><Space> <C-w>=
-nnoremap te :tabe<CR>
+nnoremap tn :tabe<CR>
+nnoremap <C-n> gt
+nnoremap <C-p> gT
 
 " invalidate Q,ZZ and ZQ
 nnoremap Q  <Nop>
