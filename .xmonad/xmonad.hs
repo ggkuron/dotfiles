@@ -24,7 +24,7 @@ myFocusFollowsMouse = False
 myBorderWidth   = 3
 myModMask       = mod4Mask
 myNumlockMask   = mod2Mask
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#cc6600"
 
@@ -59,7 +59,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ]
     ++
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
        -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
        -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
