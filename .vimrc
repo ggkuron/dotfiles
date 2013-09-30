@@ -93,7 +93,7 @@ nnoremap <silent> QR :QuickRun<CR>
 nnoremap <silent> <Space>vs :VimShell<CR>
 nnoremap <silent> <Space>gh :VimShellInteractive ghci<CR>
 vmap     <silent> <Space>ss :VimShellSendString<CR>
-" TkitVim
+" TwitVim
 let twitvim_count = 40
 nnoremap tp :<C-u>PosttoTwitter<CR>
 nnoremap tf :<C-u>FriendsTwitter<CR><C-w>k:<C-u>set wrap<CR>
