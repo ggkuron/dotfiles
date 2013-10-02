@@ -2,19 +2,19 @@
 --
 import XMonad --hiding ((|||))
 import Data.Monoid
-import System.Exit
-import XMonad.Hooks.DynamicLog
+--import System.Exit
+--import XMonad.Hooks.DynamicLog
 import XMonad.Layout.ToggleLayouts
 --import XMonad.Layout.Spiral
 import XMonad.Layout.Minimize
-import Data.Ratio
-import XMonad.Config.Gnome
+--import Data.Ratio
+--import XMonad.Config.Gnome
 --import XMonad.Stack.MyAdditions
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-myTerminal = "terminal"
+myTerminal = "gnome-terminal"
 --myBar = "xmobar"
 --myPP = xmobarPP{ppCurrent =xmobarColor "#ffff55""".wrap"<"">"}
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
@@ -49,7 +49,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         screenWorkspace 0 >>= flip whenJust (windows.W.view)
         (windows . W.greedyView) "1"
         screenWorkspace 1 >>= flip whenJust (windows.W.view)
-        (windows . W.greedyView) "8")
+        (windows . W.greedyView) "2")
     , ((modm,               xK_h     ), withFocused minimizeWindow )
     , ((modm .|. shiftMask, xK_h     ), sendMessage RestoreNextMinimizedWin )
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
