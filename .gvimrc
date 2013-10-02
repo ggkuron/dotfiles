@@ -5,3 +5,4 @@ set guioptions+=a " put that selected in visual mode in system clipboard
 set guioptions+=c " prefer to use console asking instead of pop-up dialog
 set guioptions-=T " no Toolbar
 set guioptions-=m " no menubar
+
