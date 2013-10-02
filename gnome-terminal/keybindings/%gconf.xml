@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="zoom_in" mtime="1372186875" type="string">
+		<stringvalue>&lt;Primary&gt;equal</stringvalue>
+	</entry>
+	<entry name="close_tab" mtime="1372186787" type="string">
+		<stringvalue>&lt;Primary&gt;d</stringvalue>
+	</entry>
+	<entry name="prev_tab" mtime="1372186726" type="string">
+		<stringvalue>&lt;Primary&gt;p</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1372186711" type="string">
+		<stringvalue>&lt;Primary&gt;n</stringvalue>
+	</entry>
+</gconf>
