@@ -27,10 +27,10 @@ sym_to_home() {
     fi
 
     if ln -s $PWD/$1 $HOME/$1; then
-        echo "$HOME/$1 is created!"
+        echo "$HOME/$1 (symlink) is created!"
         return 0
     else
-        echo "failed to create link $HOME/$1 .. "
+        echo "failed to create symlink $HOME/$1 .. "
         return 1
     fi
 }
