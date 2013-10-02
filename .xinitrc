@@ -5,6 +5,7 @@
 # #
 ibus-daemon -d -x
 ssh-agent 
+gnome-power-manager&
 
 # replace Alt_R with Alt_L
 xmodmap -e "keycode 108 = Alt_L"    
