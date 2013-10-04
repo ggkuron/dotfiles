@@ -67,6 +67,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'dag/vim2hs'
+NeoBundle 'morhetz/gruvbox'
 let g:haskell_conceal = 0 " disable interfering character replacement
 NeoBundle 'taglist.vim'
 NeoBundle 'FuzzyFinder'

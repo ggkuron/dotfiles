@@ -21,7 +21,7 @@ toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
-myBorderWidth   = 3
+myBorderWidth   = 4
 myModMask       = mod4Mask
 myNumlockMask   = mod2Mask
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
