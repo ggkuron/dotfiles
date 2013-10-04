@@ -15,6 +15,7 @@ set number
 set nowrap
 set list
 set listchars=tab:>>
+set laststatus=2 " always displays the status line
 nnoremap <Space>d :display<CR>
 
 " caret controles
@@ -49,6 +50,8 @@ nnoremap ZQ <Nop>
 nnoremap ZZ <Nop>
 " sudo write
 cmap w!! w !sudo tee % > /dev/null
+" expand active directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " NeoBundle plugin manager
 if has('vim_starting')
