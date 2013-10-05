@@ -62,6 +62,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.0.0/gems/bin
 export PATH=$PATH:$HOME/cabal-dev/yesod/bin
 export PATH=$PATH:$HOME/groovy-2.1.6/bin
 export PATH=$PATH:$HOME/mikutter
+export PATH=$PATH:$HOME/workspace/Haskell/yesod/cabal-dev/bin
 
 # no expnad glob symboles
 setopt nonomatch
