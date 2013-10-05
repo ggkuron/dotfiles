@@ -43,8 +43,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Return), windows W.swapMaster)
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
-    , ((modm,               xK_h     ), sendMessage Shrink)
-    , ((modm,               xK_l     ), sendMessage Expand)
+    , ((modm .|. shiftMask, xK_comma     ), sendMessage Shrink)
+    , ((modm .|. shiftMask, xK_period     ), sendMessage Expand)
     , ((modm .|. shiftMask, xK_r     ), do
         screenWorkspace 0 >>= flip whenJust (windows.W.view)
         (windows . W.greedyView) "1"
