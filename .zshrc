@@ -2,7 +2,7 @@
 
 export PATH=$PATH:$HOME/.cabal/bin
 if [ $TTY = "/dev/tty1" ] ; then
-    exec startx
+    exec xinit
 fi
 source ~/.zsh/z.sh
 precmd(){
