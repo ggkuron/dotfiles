@@ -81,6 +81,7 @@ NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'SyntaxRange'
+NeoBundle 'tsukkee/lingr-vim'
 " gvim plugin
 NeoBundle 'thinca/vim-fontzoom'
 filetype plugin indent on " auto detect plugin and indent by filetype
