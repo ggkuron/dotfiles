@@ -2,6 +2,7 @@ set nocompatible
 set nobackup
 set noswapfile
 set spelllang=en_us
+set clipboard=autoselect,unnamed
 
 " view settings
 syntax on
