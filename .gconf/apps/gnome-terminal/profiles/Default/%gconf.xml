@@ -1,29 +1,30 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="scrollbar_position" mtime="1380704696" type="string">
+	<entry name="default_show_menubar" mtime="1381924385" type="bool" value="false"/>
+	<entry name="scrollbar_position" mtime="1381924385" type="string">
 		<stringvalue>hidden</stringvalue>
 	</entry>
-	<entry name="background_darkness" mtime="1380704689" type="float" value="0.88846158981323242"/>
-	<entry name="use_theme_colors" mtime="1380704666" type="bool" value="false"/>
-	<entry name="background_image" mtime="1380704659" type="string">
+	<entry name="background_darkness" mtime="1381924385" type="float" value="0.88846158981323242"/>
+	<entry name="use_theme_colors" mtime="1381924385" type="bool" value="false"/>
+	<entry name="background_image" mtime="1381924385" type="string">
 		<stringvalue>/home/ggkuron/Desktop/wallpaper.png</stringvalue>
 	</entry>
-	<entry name="background_type" mtime="1380704643" type="string">
+	<entry name="background_type" mtime="1381924385" type="string">
 		<stringvalue>image</stringvalue>
 	</entry>
-	<entry name="palette" mtime="1380704624" type="string">
+	<entry name="palette" mtime="1381924385" type="string">
 		<stringvalue>#2E2E34343636:#CCCC00000000:#4E4E9A9A0606:#C4C4A0A00000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#8A8AE2E23434:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC</stringvalue>
 	</entry>
-	<entry name="background_color" mtime="1380704674" type="string">
+	<entry name="background_color" mtime="1381924385" type="string">
 		<stringvalue>#000000000000</stringvalue>
 	</entry>
-	<entry name="visible_name" mtime="1380704624" type="string">
+	<entry name="visible_name" mtime="1381924385" type="string">
 		<stringvalue>Default</stringvalue>
 	</entry>
-	<entry name="bold_color" mtime="1380704624" type="string">
+	<entry name="bold_color" mtime="1381924385" type="string">
 		<stringvalue>#000000000000</stringvalue>
 	</entry>
-	<entry name="foreground_color" mtime="1380704674" type="string">
+	<entry name="foreground_color" mtime="1381924385" type="string">
 		<stringvalue>#AAAAAAAAAAAA</stringvalue>
 	</entry>
 </gconf>

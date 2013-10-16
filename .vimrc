@@ -14,6 +14,7 @@ set showcmd
 set showmatch
 set number
 set nowrap
+set nofoldenable
 set list
 set listchars=tab:>>
 set laststatus=2 " always displays the status line
@@ -67,16 +68,16 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'morhetz/gruvbox'
 let g:haskell_conceal = 0 " disable interfering character replacement
+let g:haskell_conceal_enumerations = 0
 NeoBundle 'taglist.vim'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'L9'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'dart-lang/dart-vim-plugin'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'tpope/vim-markdown'
