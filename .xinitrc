@@ -7,9 +7,9 @@ ibus-daemon -d -x
 ssh-agent 
 gnome-power-manager&
 
-# replace Alt_R with Alt_L
-xmodmap -e "keycode 108 = Alt_L"    
 # replace Capslock with Ctrl_L
+xmodmap ~/.caps_killer
+setxkbmap -option ctrl:nocaps
 xmodmap ~/.xmodmap
 
 # for xmonad
