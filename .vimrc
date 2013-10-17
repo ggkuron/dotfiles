@@ -112,7 +112,6 @@ nnoremap tm :<C-u>MentionsTwitter<CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tu :<C-u>UserTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tr :<C-u>RepliesTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
-let twitvim_browser_cmd = 'xdg-open'
 
 " filetype settings
 autocmd FileType c set cindent
