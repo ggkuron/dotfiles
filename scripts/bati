@@ -1,0 +1,16 @@
+#!/bin/sh
+
+info_dir='/sys/class/power_supply/BAT1'
+full_design=`cat $info_dir/energy_full_design`
+current_full_capa=`cat $info_dir/energy_full`
+now=`cat $info_dir/energy_now`
+
+declare -i current_capacity charge_per per_real
+current_capacity="$current_full_capa * 100 / $full_design"
+charge_per="$now * 100 / $current_full_capa"
+per_real="$now * 100 / $full_design"
+
+echo "battery: $charge_per %"
+echo "max capacity down to: $current_capacity %"
+echo "youger day's $per_real % capacity"
+
