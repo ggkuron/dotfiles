@@ -8,9 +8,9 @@ ssh-agent
 gnome-power-manager&
 
 # replace Capslock with Ctrl_L
-xmodmap ~/.caps_killer
-setxkbmap -option ctrl:nocaps
-xmodmap ~/.xmodmap
+# xmodmap ~/.caps_killer
+# setxkbmap -option ctrl:nocaps
+# xmodmap ~/.xmodmap
 
 # for xmonad
 hsetroot -fill $HOME/Desktop/cartridge_dig.png
