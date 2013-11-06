@@ -71,6 +71,7 @@ NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'morhetz/gruvbox'
+NeoBundle 'scrooloose/nerdtree'
 let g:haskell_conceal = 0 " disable interfering character replacement
 let g:haskell_conceal_enumerations = 0
 NeoBundle 'taglist.vim'
