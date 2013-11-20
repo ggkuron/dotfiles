@@ -18,6 +18,16 @@ if (( $# == 1 )); then
         "hdmi-off" )
             eval "xrandr --output HDMI1 --off ${lvds_clause}"
             exit 0 ;;
+        "lvds" )
+            eval "xrandr ${lvds_clause}"
+            exit 0 ;;
+        "lvds-res" )
+            eval "xrandr --fb 1600x900 ${lvds_clause} --panning 1600x900 --scale 1.169x1.171"
+            eval "xrandr --fb 1920x1080 ${lvds_clause} --panning 1920x1080 --scale 1.403x1.403"
+            exit 0 ;;
+        "lvds-resf" )
+            eval "xrandr --fb 1920x1080 ${lvds_clause} --panning 1920x1080 --scale 1.403x1.406"
+            exit 0 ;;
     esac
     exit 1
 else
