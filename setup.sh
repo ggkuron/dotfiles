@@ -9,6 +9,7 @@ sym_to_home .gvimrc
 sym_to_home .tmux.conf
 sym_to_home .xmodmap
 sym_to_home .caps_killer
+sym_to_home .ghci
 
 if mkdir_if_needed .config/Terminal ; then
     sym_to_home .config/Terminal/terminalrc
