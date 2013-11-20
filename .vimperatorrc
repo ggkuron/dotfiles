@@ -8,6 +8,12 @@ hi StatusLine color:black; background:#BBB;
 hi Hint font-family:monospace; fontsize:14px; background-color:lightblue; color:darkred; font-family:Sans; position:absolute;
 hi HintElem background-color:aqua;
 
+map <C-R> :mapc<CR>:cmapc<CR>:imapc<CR>:source .vimperatorrc<CR>
 map <C-k> <Nop>
+map <C-h> <Nop>
+imap <C-b> <LEFT>
+imap <C-f> <RIGHT>
+imap <C-p> <Nop>
+imap <C-n> <ESC><gt>
 
 echo '.vimperatorrc loaded'
