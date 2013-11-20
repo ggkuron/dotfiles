@@ -1,6 +1,6 @@
-# using utils list
+# using utils 
 
-listed by portage package names
+which listed by portage package names
 ----
 * x11-misc/xdg-utils
     - xdg-open
@@ -9,3 +9,4 @@ listed by portage package names
 * x11-wm/xmonad-contrib
 * sys-apps/input-utils
     - input-kbd
+* x11-misc/xsel
