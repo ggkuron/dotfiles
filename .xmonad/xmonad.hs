@@ -1,22 +1,12 @@
--- xmonad.hs
---
 import XMonad --hiding ((|||))
 import Data.Monoid
---import System.Exit
---import XMonad.Hooks.DynamicLog
 import XMonad.Layout.ToggleLayouts
---import XMonad.Layout.Spiral
 import XMonad.Layout.Minimize
---import Data.Ratio
---import XMonad.Config.Gnome
---import XMonad.Stack.MyAdditions
-
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Layout.ShowWName
 
 myTerminal = "gnome-terminal"
---myBar = "xmobar"
---myPP = xmobarPP{ppCurrent =xmobarColor "#ffff55""".wrap"<"">"}
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
 
 myFocusFollowsMouse :: Bool
@@ -56,6 +46,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    -- XF86AUDIOPLAY
+    , ((0, 0x1008FF14), spawn "banshee --toggle-playing")
+    -- XF86AudioStop 
+    , ((0, 0x1008FF15), spawn "banshee --stop") 
+    -- XF86AudioPrev [
+    ,((0, 0x1008FF16), spawn "banshee --previous") 
+    -- XF86AudioNext 
+    , ((0, 0x1008FF17), spawn "banshee --next") 
+
     ]
     ++
     [((m .|. modm, k), windows $ f i)
@@ -122,11 +121,8 @@ myStartupHook = return ()
 ---------------------------------------------------------------------
 
 main = do
-    -- spawn  "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand true --witdh 20 --transparent true --tint -xffffff --height 11&"
-    -- spawn  "dmenu"
     spawn  "volti"
     xmonad defaults
-    -- statusBar myBar myPP toggleStructsKey defaults 
 
 defaults = defaultConfig {
         terminal           = myTerminal,
@@ -139,9 +135,11 @@ defaults = defaultConfig {
         focusedBorderColor = myFocusedBorderColor,
         keys               = myKeys,
         mouseBindings      = myMouseBindings,
-        layoutHook         = myLayout,
+        layoutHook         = showWName myLayout,
         manageHook         = myManageHook <+> (doF W.swapDown) ,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
         }
+
+

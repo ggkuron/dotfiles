@@ -1,5 +1,4 @@
 set guifont=Ricty\ 13
-"colorscheme jellybeans
 colorscheme gruvbox
 " default:agmrLtT(GTK), gmrLtT(MS-Windows)
 set guioptions+=a " put that selected in visual mode in system clipboard 

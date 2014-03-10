@@ -29,6 +29,7 @@ set autoindent
 set expandtab
 set shiftwidth=4
 set tabstop=4
+set ambiwidth=double
 " move aliases
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -146,7 +147,30 @@ nnoremap tm :<C-u>MentionsTwitter<CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tu :<C-u>UserTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tr :<C-u>RepliesTwitter<CR><CR><C-w>k:<C-u>set wrap<CR>
 nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
-
+" gitv
+autocmd FileType gitv call s:my_gitv_settings()
+function! s:my_gitv_settings()
+  " ここに設定を書く
+    " s:my_gitv_settings 内
+    setlocal iskeyword+=/,-,.
+    nnoremap <silent><buffer> C :<C-u>Git checkout <C-r><C-w><CR>
+    " s:my_gitv_settings 内
+    nnoremap <buffer> <Space>rb :<C-u>Git rebase <C-r>=GitvGetCurrentHash()<CR><Space>
+    nnoremap <buffer> <Space>R :<C-u>Git revert <C-r>=GitvGetCurrentHash()<CR><CR>
+    nnoremap <buffer> <Space>h :<C-u>Git cherry-pick <C-r>=GitvGetCurrentHash()<CR><CR>
+    nnoremap <buffer> <Space>rh :<C-u>Git reset --hard <C-r>=GitvGetCurrentHash()<CR>
+    " s:my_gitv_settings 内
+    nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
+endfunction
+function! s:gitv_get_current_hash()
+  return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
+endfunction
+autocmd FileType git setlocal nofoldenable foldlevel=0
+function! s:toggle_git_folding()
+  if &filetype ==# 'git'
+    setlocal foldenable!
+  endif
+endfunction
 " filetype settings
 autocmd FileType c set cindent
 autocmd FileType make set noexpandtab
