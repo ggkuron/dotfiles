@@ -5,6 +5,7 @@ import XMonad.Layout.Minimize
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Layout.ShowWName
+import XMonad.Hooks.SetWMName
 
 myTerminal = "gnome-terminal"
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
@@ -117,7 +118,7 @@ myLogHook = return ()
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 ---------------------------------------------------------------------
 
 main = do
