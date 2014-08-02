@@ -6,6 +6,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Layout.ShowWName
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ManageHelpers
 
 myTerminal = "gnome-terminal"
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
@@ -91,12 +92,10 @@ myLayout =  minimize (toggleLayouts Full  tiled) |||  minimize (toggleLayouts Fu
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    --, className =? "Firefox"        --> doShift "4"
+    [ isDialog --> doF W.shiftMaster <+> doF W.swapDown
     , className =? "Thunderbird"    --> doShift "8"
     , className =? "slite"    --> doFloat 
-    --, className =? "wpa_gui" --> doShift "9"
-    -- , resource  =? "desktop_window" --> doIgnore 
+    , className =? "MPlayer"        --> doFloat
     ]
 ---------------------------------------------------------------------
 -- Event handling
@@ -137,7 +136,7 @@ defaults = defaultConfig {
         keys               = myKeys,
         mouseBindings      = myMouseBindings,
         layoutHook         = showWName myLayout,
-        manageHook         = myManageHook <+> (doF W.swapDown) ,
+        manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
