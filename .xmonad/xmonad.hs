@@ -2,6 +2,7 @@ import XMonad --hiding ((|||))
 import Data.Monoid
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.Minimize
+import XMonad.Layout.NoBorders
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Layout.ShowWName
@@ -13,12 +14,12 @@ toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
-myBorderWidth   = 4
+myBorderWidth   = 3
 myModMask       = mod4Mask
-myNumlockMask   = mod2Mask
+-- myNumlockMask   = mod2Mask
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
 myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#cc6600"
+myFocusedBorderColor = "#4169e1"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
@@ -78,7 +79,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
     ]
 -- Layouts:
-myLayout =  minimize (toggleLayouts Full  tiled) |||  minimize (toggleLayouts Full (Mirror tiled))
+myLayout =  minimize (toggleLayouts (noBorders Full) tiled) |||  minimize (toggleLayouts (noBorders Full) (Mirror tiled))
         where                                
             tiled   = Tall nmaster delta ratio
             nmaster = 1
