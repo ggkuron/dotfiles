@@ -49,15 +49,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
-    -- XF86AUDIOPLAY
-    , ((0, 0x1008FF14), spawn "banshee --toggle-playing")
-    -- XF86AudioStop 
-    , ((0, 0x1008FF15), spawn "banshee --stop") 
-    -- XF86AudioPrev [
-    ,((0, 0x1008FF16), spawn "banshee --previous") 
-    -- XF86AudioNext 
-    , ((0, 0x1008FF17), spawn "banshee --next") 
-
+    ---- XF86AUDIOPLAY
+    --, ((0, 0x1008FF14), spawn "banshee --toggle-playing")
+    ---- XF86AudioStop 
+    --, ((0, 0x1008FF15), spawn "banshee --stop") 
+    ---- XF86AudioPrev [
+    --,((0, 0x1008FF16), spawn "banshee --previous") 
+    ---- XF86AudioNext 
+    --, ((0, 0x1008FF17), spawn "banshee --next") 
+    , ((0, 0x1008FF11), spawn "amixer -c 0 set Master 2dB-")
+    , ((0, 0x1008FF13), spawn "amixer -c 0 set Master 2dB+")
+    , ((0, 0x1008FF12), spawn "amixer set Master toggle")
     ]
     ++
     [((m .|. modm, k), windows $ f i)
