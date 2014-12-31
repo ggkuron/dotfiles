@@ -1,4 +1,4 @@
-set guifont=Ricty\ 13
+set guifont=Ricty\ 12
 colorscheme gruvbox
 " default:agmrLtT(GTK), gmrLtT(MS-Windows)
 set guioptions+=a " put that selected in visual mode in system clipboard 
