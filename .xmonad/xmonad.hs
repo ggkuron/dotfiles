@@ -124,7 +124,7 @@ myStartupHook = setWMName "LG3D"
 ---------------------------------------------------------------------
 
 main = do
-    spawn  "volti"
+    spawn "xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mymap $DISPLAY 2 > /dev/null"
     xmonad defaults
 
 defaults = defaultConfig {
