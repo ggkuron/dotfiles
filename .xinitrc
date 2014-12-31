@@ -4,10 +4,12 @@
 # export QT_IM_MODULE=ibus
 ibus-daemon -d -x
 ssh-agent 
-gnome-power-manager&
 
 # for xmonad
-hsetroot -fill $HOME/Desktop/cartridge_dig.png
+hsetroot -fill $HOME/Desktop/Abstract-Retro.jpg
 xsetroot -cursor_name left_ptr
+if [ -x /usr/bin/gnome-power-manager] ; then
+    gnome-power-manager&
+fi
 
 exec xmonad
