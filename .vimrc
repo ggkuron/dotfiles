@@ -1,7 +1,7 @@
 set nocompatible
 set nobackup
 set noswapfile
-set spelllang=en_us
+"set spelllang=en_us
 set clipboard=autoselect,unnamed
 set visualbell t_vb=
 
@@ -172,6 +172,7 @@ function! s:toggle_git_folding()
   endif
 endfunction
 " filetype settings
+autocmd FileType haskell set omnifunc=necoghc#omnifunc
 autocmd FileType c set cindent
 autocmd FileType make set noexpandtab
 " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -180,3 +181,7 @@ autocmd FileType make set noexpandtab
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
+autocmd BufNewFile,BufRead *.scala set filetype=scala
+autocmd FileType scala set shiftwidth=2 softtabstop=2
+autocmd FileType ruby set shiftwidth=2 softtabstop=2
