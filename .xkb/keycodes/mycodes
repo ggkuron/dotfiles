@@ -68,8 +68,8 @@ default xkb_keycodes "evdev" {
 	<LWIN> = 64;
 	<LCTL> = 37;
 	<SPCE> = 65;
-	<RCTL> = 105; // originally RCTL
-	<PRSC> = 108;
+	<RCTL> = 105; 
+	<PRSC> = 107;
 
 	// Microsoft keyboard extra keys
 	<LALT> = 133;
@@ -91,7 +91,7 @@ default xkb_keycodes "evdev" {
 	<FK11> = 95;
 	<FK12> = 96;
 
-	<HYPR> = 107;
+	<HYPR> = 108;
 	// <SYRQ> = 107;
 	<SCLK> = 78;
 	<PAUS> = 127;
