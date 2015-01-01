@@ -1,4 +1,4 @@
-import XMonad --hiding ((|||))
+import XMonad 
 import Data.Monoid
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.Minimize
@@ -7,7 +7,9 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Layout.ShowWName
 import XMonad.Hooks.SetWMName
+import XMonad.Actions.WindowBringer(bringWindow, windowMap)
 import XMonad.Hooks.ManageHelpers
+import XMonad.Util.Dmenu
 
 myTerminal = "gnome-terminal"
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
@@ -45,18 +47,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         (windows . W.greedyView) "2")
     , ((modm,               xK_h     ), withFocused minimizeWindow )
     , ((modm .|. shiftMask, xK_h     ), sendMessage RestoreNextMinimizedWin )
+    , ((modm .|. shiftMask, xK_l     ), bringRestoredWindow )
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
-    ---- XF86AUDIOPLAY
-    --, ((0, 0x1008FF14), spawn "banshee --toggle-playing")
-    ---- XF86AudioStop 
-    --, ((0, 0x1008FF15), spawn "banshee --stop") 
-    ---- XF86AudioPrev [
-    --,((0, 0x1008FF16), spawn "banshee --previous") 
-    ---- XF86AudioNext 
-    --, ((0, 0x1008FF17), spawn "banshee --next") 
     , ((0, 0x1008FF11), spawn "amixer -c 0 set Master 2dB-")
     , ((0, 0x1008FF13), spawn "amixer -c 0 set Master 2dB+")
     , ((0, 0x1008FF12), spawn "amixer set Master toggle")
@@ -98,7 +93,6 @@ myManageHook = composeAll
     [ isDialog --> doF W.shiftMaster <+> doF W.swapDown
     , className =? "Thunderbird"    --> doShift "8"
     , className =? "slite"    --> doFloat 
-    , className =? "MPlayer"        --> doFloat
     ]
 ---------------------------------------------------------------------
 -- Event handling
@@ -146,3 +140,12 @@ defaults = defaultConfig {
         }
 
 
+bringRestored :: Window -> X ()
+bringRestored w = do
+    broadcastMessage (RestoreMinimizedWin w)
+    windows (bringWindow w) -- or something else like focusWindow
+
+bringRestoredWindow = do
+    wm <- windowMap
+    w <- dmenu (M.keys wm)
+    whenJust (M.lookup w wm) bringRestored
