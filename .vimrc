@@ -41,6 +41,8 @@ noremap  <Space>h ^
 noremap  <Space>l $
 noremap  <Space>m %
 nnoremap <Space>/ *
+nnoremap t0 :<C-u>setl expandtab<CR>
+nnoremap t1 :<C-u>setl noexpandtab<CR>
 nnoremap t2 :<C-u>setl shiftwidth=2 softtabstop=2<CR>
 nnoremap t4 :<C-u>setl shiftwidth=4 softtabstop=4<CR>
 nnoremap t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
