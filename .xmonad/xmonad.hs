@@ -45,7 +45,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         (windows . W.greedyView) "1"
         screenWorkspace 1 >>= flip whenJust (windows.W.view)
         (windows . W.greedyView) "2")
-    , ((modm,               xK_h     ), withFocused minimizeWindow )
+    , ((modm,               xK_h     ), withFocused minimizeWindow >> windows W.focusDown  )
     , ((modm .|. shiftMask, xK_h     ), sendMessage RestoreNextMinimizedWin )
     , ((modm .|. shiftMask, xK_l     ), bringRestoredWindow )
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
