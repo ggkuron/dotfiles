@@ -185,5 +185,6 @@ autocmd FileType make set noexpandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
 autocmd BufNewFile,BufRead *.scala set filetype=scala
+autocmd BufNewFile,BufRead *.less setf less
 autocmd FileType scala set shiftwidth=2 softtabstop=2
 autocmd FileType ruby set shiftwidth=2 softtabstop=2
