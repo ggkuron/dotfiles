@@ -1,18 +1,21 @@
 #!/bin/zsh
+<<<<<< HEAD
 
 if [ $TTY = "/dev/tty1" ] ; then
     exec xinit
 fi
 unsetopt BEEP
+source ~/.zsh/z.sh
 
 autoload -Uz vcs_info    
 setopt prompt_subst    
 
 zstyle ':vcs_info:*' formats "%F{red}[%b]%f"    
-zstyle ':vcs_info:*' actionformats '%F{red}[%b](%a)%f'    
+zstyle ':vcs_info:*' actionformats '%F{red}[%b](%a)%f'
 
 # プロンプト表示直前にvcs_info呼び出し    
 precmd(){
+    _z --add "$(pwd -P)"
      vcs_info
 }
 
@@ -53,6 +56,7 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 export EDITOR="vim"
 compinit
 
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -91,5 +95,3 @@ alias -g terminal='terminal'
 
 eval "$(nodenv init -)"
 
-#THIS MUST BE AT THE END FOR GVM TO WORK!!!
-# [[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh
