@@ -10,6 +10,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Actions.WindowBringer(bringWindow, windowMap)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.Dmenu
+import System.Exit
 
 myTerminal = "gnome-terminal"
 toggleStructsKey XConfig{XMonad.modMask=modMask}=(modMask,xK_b)
@@ -48,6 +49,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_h     ), withFocused minimizeWindow >> windows W.focusDown  )
     , ((modm .|. shiftMask, xK_h     ), sendMessage RestoreNextMinimizedWin )
     , ((modm .|. shiftMask, xK_l     ), bringRestoredWindow )
+    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
@@ -92,7 +94,6 @@ myLayout =  minimize (toggleLayouts (noBorders Full) tiled) |||  minimize (toggl
 myManageHook = composeAll
     [ isDialog --> doF W.shiftMaster <+> doF W.swapDown
     , className =? "Thunderbird"    --> doShift "8"
-    , className =? "slite"    --> doFloat 
     ]
 ---------------------------------------------------------------------
 -- Event handling
