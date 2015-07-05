@@ -4,8 +4,12 @@
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export XMODIFIERS="@im=ibus"
-export XMODIFIER="@im=ibus"
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export DefaultIMModule=ibus
+export XMODIFIERS="@im=fcitx"
+export XMODIFIER="@im=fcitx"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export DefaultIMModule=fcitx
+
+xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mymap 
+./scripts/disable-touchpad
+fcitx

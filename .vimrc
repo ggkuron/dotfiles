@@ -16,6 +16,7 @@ set showmatch
 set number
 set nowrap
 set nofoldenable
+set hlsearch
 set list
 set listchars=tab:>>
 set laststatus=2 " always displays the status line

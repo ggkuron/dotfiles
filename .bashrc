@@ -11,3 +11,5 @@ export LC_ALL="en_US.UTF-8"
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh
+
+[ -s "/home/ggkuron/.dnx/dnvm/dnvm.sh" ] && . "/home/ggkuron/.dnx/dnvm/dnvm.sh" # Load dnvm

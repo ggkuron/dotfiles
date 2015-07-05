@@ -2,8 +2,7 @@
 # export GTK_IM_MODULE=ibus
 # export XMODIFIERS=@im=ibus
 # export QT_IM_MODULE=ibus
-ibus-daemon -d -x
-ssh-agent 
+# ibus-daemon -d -x ssh-agent 
 
 # for xmonad
 hsetroot -fill $HOME/Desktop/Abstract-Retro.jpg

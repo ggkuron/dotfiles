@@ -92,8 +92,7 @@ default xkb_keycodes "evdev" {
 	<FK12> = 96;
 
 	<HYPR> = 108;
-	// <SYRQ> = 107;
-	<SCLK> = 78;
+	// <SYRQ> = 107; <SCLK> = 78;
 	<PAUS> = 127;
 	// <BRK> = 419;
 

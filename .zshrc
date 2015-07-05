@@ -78,6 +78,8 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 setopt nonomatch
 export GIT_EDITOR=vim
 alias tig='tig --all'
+alias aps='aptitude search'
+alias api='aptitude install'
 
 setopt auto_cd
 setopt auto_pushd
@@ -95,3 +97,5 @@ alias -g terminal='terminal'
 
 eval "$(nodenv init -)"
 
+
+[ -s "/home/ggkuron/.dnx/dnvm/dnvm.sh" ] && . "/home/ggkuron/.dnx/dnvm/dnvm.sh" # Load dnvm
