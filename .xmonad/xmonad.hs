@@ -20,7 +20,7 @@ myFocusFollowsMouse = False
 myBorderWidth   = 3
 myModMask       = mod4Mask
 -- myNumlockMask   = mod2Mask
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
+myWorkspaces    = map show [1..3]
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#4169e1"
 
