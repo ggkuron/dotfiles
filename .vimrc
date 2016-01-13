@@ -6,7 +6,8 @@ set clipboard=autoselect,unnamed
 
 " view settings
 syntax on
-colorscheme dw_yellow
+" colorscheme dw_yellow
+" colorscheme gruvbox
 set background=dark
 set t_Co=256
 set encoding=utf-8
@@ -61,9 +62,10 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 if has('vim_starting')
   set rtp+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))            
+call neobundle#begin(expand('~/.vim/bundle/'))            
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vinarise'
-NeoBundle 'Shougo/neocomplete'
+" NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-quickrun'
@@ -76,7 +78,7 @@ NeoBundle 'morhetz/gruvbox'
 NeoBundle 'scrooloose/nerdtree'
 let g:haskell_conceal = 0 " disable interfering character replacement
 let g:haskell_conceal_enumerations = 0
-NeoBundle 'taglist.vim'
+" NeoBundle 'taglist.vim'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'L9'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -85,15 +87,19 @@ NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'SyntaxRange'
-NeoBundle 'tsukkee/lingr-vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'morhetz/gruvbox'
+" NeoBundle 'tsukkee/lingr-vim'
+
 " gvim plugin
 NeoBundle 'thinca/vim-fontzoom'
+call neobundle#end()
 filetype plugin indent on " auto detect plugin and indent by filetype
 " neocomplete
-let g:neocomplete#enable_at_startup = 1 " enable neocomplete
-let g:neocomplete#enable_smart_case = 1 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-y>  neocomplete#close_popup()
+let g:neocomplete#enable_at_startup = 0 " enable neocomplete
+" let g:neocomplete#enable_smart_case = 1 
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><C-y>  neocomplete#close_popup()
 " Unite
 nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
 nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -119,9 +125,9 @@ nnoremap <Leader><Leader> :<C-u>RefreshTwitter<CR>
 " filetype settings
 autocmd FileType c set cindent
 autocmd FileType make set noexpandtab
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd BufNewFile,BufRead *.md set filetype=markdown

@@ -4,10 +4,18 @@ export PATH=$PATH:$HOME/.cabal/bin
 if [ $TTY = "/dev/tty1" ] ; then
     exec xinit
 fi
-source ~/.zsh/z.sh
+
+autoload -Uz vcs_info    
+setopt prompt_subst    
+
+zstyle ':vcs_info:*' formats "%F{red}[%b]%f"    
+zstyle ':vcs_info:*' actionformats '%F{red}[%b](%a)%f'    
+
+# プロンプト表示直前にvcs_info呼び出し    
 precmd(){
-    _z --add "$(pwd -P)"
+     vcs_info
 }
+
 
 # countermeasure against "function definition file not found"
 # fpath=(/usr/local/share/zsh/5.0.2/functions ${fpath})
@@ -17,7 +25,29 @@ bindkey '^[[3~' delete-char
 
 autoload -U promptinit
 promptinit
-prompt gentoo
+
+prompt_gentoo_setup () {
+    prompt_gentoo_prompt=${1:-'blue'}
+    prompt_gentoo_user=${2:-'green'}
+    prompt_gentoo_root=${3:-'red'}
+    
+    if [ "$USER" = 'root' ]
+    then
+    base_prompt="%B%F{$prompt_gentoo_root}%m%k "
+    else
+    base_prompt="%B%F{$prompt_gentoo_user}%n@%m%k "
+    fi
+    post_prompt='%b%f%k'
+    
+    #setopt noxtrace localoptions
+    
+    path_prompt="%B%F{$prompt_gentoo_prompt}%1~ "'${vcs_info_msg_0_}'
+    PS1="$base_prompt$path_prompt %F{$prompt_gentoo_prompt}%# $post_prompt"
+    PS2="$base_prompt$path_prompt %F{$prompt_gentoo_prompt}%_> $post_prompt"
+    PS3="$base_prompt$path_prompt %F{$prompt_gentoo_prompt}?# $post_prompt"
+}
+
+prompt_gentoo_setup "$@"
 
 autoload -Uz compinit
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
@@ -89,4 +119,4 @@ alias hdmim='monitrc hdmi-mirror'
 alias hdmioff='monitrc hdmi-off'
 
 #THIS MUST BE AT THE END FOR GVM TO WORK!!!
-[[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh
+# [[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh
