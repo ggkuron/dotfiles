@@ -1,2 +1,0 @@
-#!/bin/sh
-sudo input-kbd -f $HOME/disable_kb.map 5 /dev/input/event5
