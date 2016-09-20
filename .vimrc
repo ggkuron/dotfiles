@@ -1,13 +1,17 @@
 set nocompatible
 set nobackup
 set noswapfile
-"set spelllang=en_us
+set spelllang=en_us
 set clipboard=autoselect,unnamed
-set visualbell t_vb=
+set noeb vb t_vb=
+
+if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
+endif
 
 " view settings
 syntax on
-" colorscheme dw_yellow
 set background=dark
 set t_Co=256
 set encoding=utf-8
