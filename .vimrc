@@ -3,11 +3,12 @@ set nobackup
 set noswapfile
 set spelllang=en_us
 set clipboard=autoselect,unnamed
+set visualbell t_vb=
 
 " view settings
 syntax on
 " colorscheme dw_yellow
-" colorscheme gruvbox
+colorscheme gruvbox
 set background=dark
 set t_Co=256
 set encoding=utf-8
@@ -19,6 +20,8 @@ set nofoldenable
 set list
 set listchars=tab:>>
 set laststatus=2 " always displays the status line
+set hlsearch
+set statusline="col:\ %c"
 nnoremap <Space>d :display<CR>
 
 " caret controles
@@ -53,10 +56,18 @@ nnoremap <C-p> gT
 nnoremap Q  <Nop>
 nnoremap ZQ <Nop>
 nnoremap ZZ <Nop>
+" kill wa! command
+cmap wa  <Nop>
+cmap wa! <Nop>
 " sudo write
 cmap w!! w !sudo tee % > /dev/null
 " expand active directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
+endif
 
 " NeoBundle plugin manager
 if has('vim_starting')
@@ -89,7 +100,13 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'SyntaxRange'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'morhetz/gruvbox'
+NeoBundle 'xolox/vim-session'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'PProvost/vim-ps1'
 " NeoBundle 'tsukkee/lingr-vim'
+"
+let g:session_autosave = 'no'
+let g:session_autoload = 'yes'
 
 " gvim plugin
 NeoBundle 'thinca/vim-fontzoom'
@@ -114,7 +131,9 @@ nnoremap <silent> <Space>vs :VimShell<CR>
 nnoremap <silent> <Space>gh :VimShellInteractive ghci<CR>
 vmap     <silent> <Space>ss :VimShellSendString<CR>
 " TwitVim
+let twitvim_browser_cmd = 'firefox'
 let twitvim_count = 40
+
 nnoremap tp :<C-u>PosttoTwitter<CR>
 nnoremap tf :<C-u>FriendsTwitter<CR><C-w>k:<C-u>set wrap<CR>
 nnoremap tm :<C-u>MentionsTwitter<CR><C-w>k:<C-u>set wrap<CR>

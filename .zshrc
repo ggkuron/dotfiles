@@ -63,37 +63,14 @@ SAVEHIST=10000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export GBDKDIR=/usr/local/share/gbdk/
-export HAXEPATH=/usr/local/haxe
-# tail :. is important
-export HAXE_STD_PATH=/usr/local/haxe/std:.
-export NEKOPATH=/usr/local/neko
-export DART_SDK=$HOME/dart/dart/dart-sdk
-export NDK=$HOME/android-ndk-r8e
-export GEM_HOME=$HOME/.gem/ruby/2.0.0/gems
-
-export PATH=$PATH:/usr/lib/ccache/bin:/usr/lib/distcc/bin
-export PATH=$PATH:/usr/games/bin
-export PATH=$PATH:$GBDKDIR/bin
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/altera/12.0sp1/quartus/bin
-export PATH=$PATH:$HOME/android/android-sdk-linux/tools
-export PATH=$PATH:$HOME/android/android-sdk-linux/platform-tools
+export PATH=$PATH:$HOME/bin/zbar
 export PATH=$PATH:$NDK
 export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$HOME/.nodebrew/current/bin
-export PATH=$PATH:$NEKOPATH
-export PATH=$PATH:$HAXEPATH
-export PATH=$PATH:$HAXEPATH/std
-export PATH=$PATH:$DART_SDK
-export PATH=$PATH:$DART_SDK/bin
-export PATH=$PATH:/usr/local/heroku/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.0.0/gems/bin
-export PATH=$PATH:$HOME/cabal-dev/yesod/bin
-export PATH=$PATH:$HOME/groovy-2.1.6/bin
-export PATH=$PATH:$HOME/mikutter
-export PATH=$PATH:$HOME/workspace/Haskell/yesod/cabal-dev/bin
+export PATH=$PATH:/mingw64/bin/
+export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
+export PATH=$PATH:"/c/ProgramData/Microsoft/Windows/Start Menu/Programs/"
 
 # no expnad glob symboles
 setopt nonomatch
