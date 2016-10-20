@@ -1,3 +1,5 @@
+set encoding=utf-8
+scriptencoding utf-8
 set nocompatible
 set nobackup
 set noswapfile
@@ -14,7 +16,8 @@ endif
 syntax on
 set background=dark
 set t_Co=256
-set encoding=utf-8
+set ambiwidth=double
+set cursorline
 set showcmd
 set showmatch
 set number
@@ -27,6 +30,19 @@ set laststatus=2 " always displays the status line
 set hlsearch
 set statusline="col:\ %c"
 nnoremap <Space>d :display<CR>
+
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+       set paste
+       return a:ret
+   endfunction
+
+   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 " caret controles
 set whichwrap=b,s,h,l,<,>,[,] 
