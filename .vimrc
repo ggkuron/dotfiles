@@ -8,7 +8,6 @@ set visualbell t_vb=
 " view settings
 syntax on
 " colorscheme dw_yellow
-colorscheme gruvbox
 set background=dark
 set t_Co=256
 set encoding=utf-8
@@ -64,53 +63,60 @@ cmap w!! w !sudo tee % > /dev/null
 " expand active directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-if has('persistent_undo')
-    set undodir=~/.vim/undo
-    set undofile
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+
+" dein plugin manager
+if dein#load_state('~/.vim/dein')
+    call dein#begin('~/.vim/dein')
+
+    if has('persistent_undo')
+        set undodir=~/.vim/undo
+        set undofile
+    endif
+
+    call dein#add('morhetz/gruvbox')
+    call dein#add('Shougo/vinarise')
+    " NeoBundle 'Shougo/neocomplete'
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/vimfiler')
+    call dein#add('thinca/vim-quickrun')
+    call dein#add('Shougo/vimshell')
+    call dein#add('Shougo/vimproc')
+    call dein#add('eagletmt/ghcmod-vim')
+    call dein#add('ujihisa/neco-ghc')
+    call dein#add('dag/vim2hs')
+    call dein#add('morhetz/gruvbox')
+    call dein#add('scrooloose/nerdtree')
+    " NeoBundle 'taglist.vim'
+    call dein#add('vim-scripts/FuzzyFinder')
+    call dein#add('vim-scripts/L9')
+    call dein#add('kchmck/vim-coffee-script')
+    call dein#add('dart-lang/dart-vim-plugin')
+    call dein#add('pbrisbin/html-template-syntax')
+    call dein#add('vim-scripts/TwitVim')
+    call dein#add('tpope/vim-markdown')
+    call dein#add('vim-scripts/SyntaxRange')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('morhetz/gruvbox')
+    call dein#add('xolox/vim-session')
+    call dein#add('xolox/vim-misc')
+    call dein#add('PProvost/vim-ps1')
+    " NeoBundle 'tsukkee/lingr-vim'
+
+" gvim plugin
+    call dein#add('thinca/vim-fontzoom')
+    call dein#end()
+    call dein#save_state()
 endif
 
-" NeoBundle plugin manager
-if has('vim_starting')
-  set rtp+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))            
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vinarise'
-" NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'morhetz/gruvbox'
-NeoBundle 'scrooloose/nerdtree'
-let g:haskell_conceal = 0 " disable interfering character replacement
+colorscheme gruvbox
+
+"let g:haskell_conceal = 0 " disable interfering character replacement
 let g:haskell_conceal_enumerations = 0
-" NeoBundle 'taglist.vim'
-NeoBundle 'FuzzyFinder'
-NeoBundle 'L9'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'dart-lang/dart-vim-plugin'
-NeoBundle 'pbrisbin/html-template-syntax'
-NeoBundle 'vim-scripts/TwitVim'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'SyntaxRange'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'morhetz/gruvbox'
-NeoBundle 'xolox/vim-session'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'PProvost/vim-ps1'
-" NeoBundle 'tsukkee/lingr-vim'
-"
 let g:session_autosave = 'no'
 let g:session_autoload = 'yes'
 
-" gvim plugin
-NeoBundle 'thinca/vim-fontzoom'
-call neobundle#end()
 filetype plugin indent on " auto detect plugin and indent by filetype
 " neocomplete
 let g:neocomplete#enable_at_startup = 0 " enable neocomplete
