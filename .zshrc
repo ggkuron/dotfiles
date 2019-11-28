@@ -71,6 +71,7 @@ export PATH=$PATH:$HOME/.nodebrew/current/bin
 export PATH=$PATH:/mingw64/bin/
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:"/c/ProgramData/Microsoft/Windows/Start Menu/Programs/"
+export PATH="$HOME/.nodenv/bin:$PATH"
 
 # no expnad glob symboles
 setopt nonomatch
@@ -85,15 +86,13 @@ setopt list_types
 
 setopt extended_glob
 
+alias powershell='/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe'
 alias ls=' ls --color=always'
 export LESS='-R'
 alias -g L='| less -R'
 alias -g terminal='terminal'
 
-alias hdmil='monitrc hdmi-left'
-alias hdmir='monitrc hdmi-right'
-alias hdmim='monitrc hdmi-mirror'
-alias hdmioff='monitrc hdmi-off'
+eval "$(nodenv init -)"
 
 #THIS MUST BE AT THE END FOR GVM TO WORK!!!
 # [[ -s $HOME/.gvm/bin/gvm-init.sh ]] && source $HOME/.gvm/bin/gvm-init.sh
