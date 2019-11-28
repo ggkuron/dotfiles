@@ -1,9 +1,4 @@
 #!/bin/zsh
-<<<<<< HEAD
-
-if [ $TTY = "/dev/tty1" ] ; then
-    exec xinit
-fi
 unsetopt BEEP
 source ~/.zsh/z.sh
 

@@ -209,3 +209,5 @@ autocmd BufNewFile,BufRead *.scala set filetype=scala
 autocmd BufNewFile,BufRead *.less setf less
 autocmd FileType scala set shiftwidth=2 softtabstop=2
 autocmd FileType ruby set shiftwidth=2 softtabstop=2
+
+colorscheme gruvbox

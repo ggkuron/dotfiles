@@ -2,6 +2,8 @@
 
 . $PWD/setup_common.sh
 
+git clone git://github.com/rupa/z $HOME/.zsh
+
 sym_to_home .bashrc
 sym_to_home .zshrc
 sym_to_home .vimrc
