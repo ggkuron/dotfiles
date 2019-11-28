@@ -63,12 +63,12 @@ cmap w!! w !sudo tee % > /dev/null
 " expand active directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/bundle/dein/repos/github.com/Shougo/dein.vim
 
 
 " dein plugin manager
-if dein#load_state('~/.vim/dein')
-    call dein#begin('~/.vim/dein')
+if dein#load_state('~/.vim/bundle/dein')
+    call dein#begin('~/.vim/bundle/dein')
 
     if has('persistent_undo')
         set undodir=~/.vim/undo
