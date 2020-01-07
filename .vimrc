@@ -126,6 +126,7 @@ if dein#load_state('~/.vim/bundle/dein')
     call dein#add('xolox/vim-session')
     call dein#add('xolox/vim-misc')
     call dein#add('PProvost/vim-ps1')
+    call dein#add('leafgarland/typescript-vim')
     " NeoBundle 'tsukkee/lingr-vim'
 
 " gvim plugin
@@ -207,6 +208,7 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
 autocmd BufNewFile,BufRead *.scala set filetype=scala
 autocmd BufNewFile,BufRead *.less setf less
+autocmd BufNewFile,BufRead *.ts,*.tsx setf typescript
 autocmd FileType scala set shiftwidth=2 softtabstop=2
 autocmd FileType ruby set shiftwidth=2 softtabstop=2
 
