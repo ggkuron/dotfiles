@@ -79,6 +79,8 @@ alias tig='tig --all'
 alias explorer='/mnt/c/Windows/explorer.exe'
 alias cmd='/mnt/c/Windows/System32/cmd.exe'
 alias docker='/mnt/c/Program\ Files/Docker/Docker/Resources/bin/docker.exe'
+alias gvim='cmd -k "/mnt/c/Windows/gvim.bat"'
+alias gview='cmd -k "/mnt/c/Windows/gview.bat"'
 
 
 setopt auto_cd
