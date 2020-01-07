@@ -59,22 +59,27 @@ SAVEHIST=10000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export VAGRANT_WSL_WINDOWS_ACCESS_USER="LAPTOP-34TNM696\\eu"
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/c/vagrant"
+
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/bin/zbar
-export PATH=$PATH:$NDK
+export PATH=$PATH:/mnt/c/bin
 export PATH=$PATH:$HOME/scripts
-export PATH=$PATH:$HOME/.nodebrew/current/bin
-export PATH=$PATH:/mingw64/bin/
-export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
-export PATH=$PATH:"/c/ProgramData/Microsoft/Windows/Start Menu/Programs/"
-export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH=$PATH:$HOME/.nodenv/bin
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export PATH="$PATH:/mnt/c/Windows/System32/"
+export PATH="$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/"
+
 
 # no expnad glob symboles
 setopt nonomatch
 export GIT_EDITOR=vim
 alias tig='tig --all'
-alias aps='aptitude search'
-alias api='aptitude install'
+alias explorer='/mnt/c/Windows/explorer.exe'
+alias cmd='/mnt/c/Windows/System32/cmd.exe'
+alias docker='/mnt/c/Program\ Files/Docker/Docker/Resources/bin/docker.exe'
+
 
 setopt auto_cd
 setopt auto_pushd
