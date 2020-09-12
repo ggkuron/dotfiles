@@ -96,8 +96,3 @@ alias ls=' ls --color=always'
 export LESS='-R'
 alias -g L='| less -R'
 alias -g terminal='terminal'
-
-eval "$(nodenv init -)"
-
-
-[ -s "/home/ggkuron/.dnx/dnvm/dnvm.sh" ] && . "/home/ggkuron/.dnx/dnvm/dnvm.sh" # Load dnvm

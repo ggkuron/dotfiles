@@ -3,6 +3,13 @@
 . $PWD/setup_common.sh
 
 git clone git://github.com/rupa/z $HOME/.zsh
+# install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# install dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein && rm ./installer.sh
+# create a directory for vim persistent undo 
+mkdir -p ~/.vim/undo
 
 sym_to_home .bashrc
 sym_to_home .zshrc
