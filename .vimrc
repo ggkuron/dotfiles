@@ -110,7 +110,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('eagletmt/ghcmod-vim')
     call dein#add('ujihisa/neco-ghc')
     call dein#add('dag/vim2hs')
-    call dein#add('morhetz/gruvbox')
     call dein#add('scrooloose/nerdtree')
     " NeoBundle 'taglist.vim'
     call dein#add('vim-scripts/FuzzyFinder')
@@ -122,7 +121,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-markdown')
     call dein#add('vim-scripts/SyntaxRange')
     call dein#add('tpope/vim-fugitive')
-    call dein#add('morhetz/gruvbox')
     call dein#add('xolox/vim-session')
     call dein#add('xolox/vim-misc')
     call dein#add('PProvost/vim-ps1')
@@ -134,8 +132,6 @@ if dein#load_state('~/.cache/dein')
     call dein#end()
     call dein#save_state()
 endif
-
-colorscheme gruvbox
 
 "let g:haskell_conceal = 0 " disable interfering character replacement
 let g:haskell_conceal_enumerations = 0

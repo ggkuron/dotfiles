@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 mkdir_if_needed() {
     if [ $# -ne 1 ] || [ ! -d $PWD/$1 ]; then
