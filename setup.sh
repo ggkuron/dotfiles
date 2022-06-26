@@ -2,7 +2,7 @@
 
 . $PWD/setup_common.sh
 
-git clone git://github.com/rupa/z $HOME/.zsh
+git clone git://github.com/rupa/z.git $HOME/.zsh
 # install tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # install dein
