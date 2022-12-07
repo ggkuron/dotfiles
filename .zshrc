@@ -59,28 +59,24 @@ SAVEHIST=10000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export VAGRANT_WSL_WINDOWS_ACCESS_USER="LAPTOP-34TNM696\\eu"
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/c/vagrant"
-
-export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/mnt/c/bin
+export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$HOME/.nodenv/bin
-export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
-export PATH="$PATH:/mnt/c/Windows/System32/"
-export PATH="$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/"
+export PATH=$PATH:"/mnt/c/Windows/System32/"
+export PATH=$PATH:"/mnt/c/Windows/System32/WindowsPowerShell/v1.0/"
 
 
 # no expnad glob symboles
 setopt nonomatch
 export GIT_EDITOR=vim
-alias tig='tig --all'
 alias explorer='/mnt/c/Windows/explorer.exe'
 alias cmd='/mnt/c/Windows/System32/cmd.exe'
-alias docker='/mnt/c/Program\ Files/Docker/Docker/Resources/bin/docker.exe'
 alias gvim='cmd -k "/mnt/c/Windows/gvim.bat"'
 alias gview='cmd -k "/mnt/c/Windows/gview.bat"'
+alias stack='cmd /C stack'
+alias cabal='cmd /C cabal'
+alias gs='git status'
 
 
 setopt auto_cd
@@ -96,3 +92,7 @@ alias ls=' ls --color=always'
 export LESS='-R'
 alias -g L='| less -R'
 alias -g terminal='terminal'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
