@@ -1,0 +1,178 @@
+set encoding=utf-8
+scriptencoding utf-8
+set nocompatible
+set nobackup
+set noswapfile
+set spelllang=en_us
+set clipboard=autoselect,unnamed
+set noeb vb t_vb=
+
+" view settings
+syntax on
+set background=dark
+set t_Co=256
+set ambiwidth=double
+set cursorline
+set showcmd
+set showmatch
+set number
+set nowrap
+set nofoldenable
+set hlsearch
+set list
+set listchars=tab:>>
+set laststatus=2 " always displays the status line
+set hlsearch
+set statusline="col:\ %c"
+nnoremap <Space>d :display<CR>
+
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+       set paste
+       return a:ret
+   endfunction
+
+   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
+" caret controles
+set whichwrap=b,s,h,l,<,>,[,] 
+set autoindent
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set ambiwidth=double
+" move aliases
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap j gj
+nnoremap k gk
+noremap  <Space>h ^
+noremap  <Space>l $
+noremap  <Space>m %
+nnoremap <Space>/ *
+nnoremap t0 :<C-u>setl expandtab<CR>
+nnoremap t1 :<C-u>setl noexpandtab<CR>
+nnoremap t2 :<C-u>setl shiftwidth=2 softtabstop=2<CR>
+nnoremap t4 :<C-u>setl shiftwidth=4 softtabstop=4<CR>
+nnoremap t8 :<C-u>setl shiftwidth=8 softtabstop=8<CR>
+" splitright only when opening empty new
+nnoremap <Space>v :vnew<CR><C-w>Li
+nnoremap <Space>s :new<CR>i
+nnoremap <Space><Space> <C-w>=
+nnoremap tn :tabe<CR>
+nnoremap <C-n> gt
+nnoremap <C-p> gT
+
+" invalidate Q,ZZ and ZQ
+nnoremap Q  <Nop>
+nnoremap ZQ <Nop>
+nnoremap ZZ <Nop>
+" kill wa! command
+cmap wa  <Nop>
+cmap wa! <Nop>
+" sudo write
+cmap w!! w !sudo tee % > /dev/null
+" expand active directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+
+" dein plugin manager
+if dein#load_state('~/.vim/bundle/dein')
+    call dein#begin('~/.vim/bundle/dein')
+
+    if has('persistent_undo')
+        set undodir=~/.vim/undo
+        set undofile
+    endif
+
+    call dein#add('morhetz/gruvbox')
+    call dein#add('Shougo/vinarise')
+    " NeoBundle 'Shougo/neocomplete'
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/vimfiler')
+    call dein#add('thinca/vim-quickrun')
+    call dein#add('Shougo/vimshell')
+    call dein#add('Shougo/vimproc')
+    call dein#add('eagletmt/ghcmod-vim')
+    call dein#add('ujihisa/neco-ghc')
+    call dein#add('dag/vim2hs')
+    call dein#add('scrooloose/nerdtree')
+    " NeoBundle 'taglist.vim'
+    call dein#add('vim-scripts/FuzzyFinder')
+    call dein#add('vim-scripts/L9')
+    call dein#add('kchmck/vim-coffee-script')
+    call dein#add('dart-lang/dart-vim-plugin')
+    call dein#add('pbrisbin/html-template-syntax')
+    call dein#add('vim-scripts/TwitVim')
+    call dein#add('tpope/vim-markdown')
+    call dein#add('vim-scripts/SyntaxRange')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('xolox/vim-session')
+    call dein#add('xolox/vim-misc')
+    call dein#add('PProvost/vim-ps1')
+    " NeoBundle 'tsukkee/lingr-vim'
+
+" gvim plugin
+    call dein#add('thinca/vim-fontzoom')
+    call dein#end()
+    call dein#save_state()
+endif
+
+colorscheme desert
+
+"let g:haskell_conceal = 0 " disable interfering character replacement
+let g:haskell_conceal_enumerations = 0
+let g:session_autosave = 'no'
+let g:session_autoload = 'yes'
+
+filetype plugin indent on " auto detect plugin and indent by filetype
+" neocomplete
+let g:neocomplete#enable_at_startup = 0 " enable neocomplete
+" let g:neocomplete#enable_smart_case = 1 
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><C-y>  neocomplete#close_popup()
+" Unite
+nnoremap <silent> <Space>ub :<C-u>Unite buffer<CR>
+nnoremap <silent> <Space>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <Space>ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <Space>um :<C-u>Unite file_mru<CR>
+nnoremap <silent> <Space>uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <Space>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+" QuickRun
+nnoremap <silent> QR :QuickRun<CR>
+" Vimshell
+nnoremap <silent> <Space>vs :VimShell<CR>
+nnoremap <silent> <Space>gh :VimShellInteractive ghci<CR>
+vmap     <silent> <Space>ss :VimShellSendString<CR>
+
+autocmd FileType git setlocal nofoldenable foldlevel=0
+function! s:toggle_git_folding()
+  if &filetype ==# 'git'
+    setlocal foldenable!
+  endif
+endfunction
+" filetype settings
+autocmd FileType haskell set omnifunc=necoghc#omnifunc
+autocmd FileType c set cindent
+autocmd FileType make set noexpandtab
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
+autocmd BufNewFile,BufRead *.scala set filetype=scala
+autocmd BufNewFile,BufRead *.less setf less
+autocmd FileType scala set shiftwidth=2 softtabstop=2
+autocmd FileType ruby set shiftwidth=2 softtabstop=2
+
